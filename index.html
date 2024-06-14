@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Key Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/node-forge@0.10.0/dist/forge.min.js"></script>
+</head>
+<body>
+    <h1>RSA Key Generator</h1>
+    <div>
+        <label for="keySize">Select Key Size:</label>
+        <select id="keySize">
+            <option value="1024">1024 bits</option>
+            <option value="2048" selected>2048 bits</option>
+            <option value="4096">4096 bits</option>
+        </select>
+    </div>
+    <button id="generateButton">Generate Keys</button>
+
+    <div class="key-container">
+        <h2>Public Key</h2>
+        <textarea id="publicKey" readonly></textarea>
+        <button onclick="copyToClipboard('publicKey')">Copy Public Key</button>
+        <button onclick="downloadKey('publicKey', 'public_key.pem')">Download Public Key</button>
+    </div>
+
+    <div class="key-container">
+        <h2>Private Key</h2>
+        <textarea id="privateKey" readonly></textarea>
+        <button onclick="copyToClipboard('privateKey')">Copy Private Key</button>
+        <button onclick="downloadKey('privateKey', 'private_key.pem')">Download Private Key</button>
+    </div>
+
+    <div id="log" class="log-container"></div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
